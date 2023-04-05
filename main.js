@@ -5,7 +5,7 @@ import wa from '@open-wa/wa-automate';
  */
 const initClient = async () => {
     const client = await wa.create({
-        sessionId: "alias-migrator",
+        sessionId: "ALiAS-Migrator",
         multiDevice: true,
         authTimeout: 60,
         blockCrashLogs: true,
