@@ -5,7 +5,7 @@ import wa from '@open-wa/wa-automate';
  */
 const initClient = async () => {
     const client = await wa.create({
-        sessionId: "alias-migrator",
+        sessionId: "ALiAS-Migrator",
         multiDevice: true,
         authTimeout: 60,
         blockCrashLogs: true,
@@ -39,9 +39,9 @@ const migrateMembers = async (client, sourceGroupId, targetGroupId) => {
  */
 const printMatchingGroups = async (client, keyword) => {
     const r = RegExp(keyword, 'i');
-    const groups = (await client.getAllGroups()).filter(group => group.name.match(r));
+    const groups = (await client.getAllGroups()).filter(group => group.contact.formattedName.match(r));
     for (const group of groups) {
-        console.log(`group: ${group.name}; id = ${group.id}`);
+        console.log(`group: ${group.contact.formattedName}; id = ${group.id}`);
     }
 }
 
